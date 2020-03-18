@@ -2,12 +2,13 @@
     <div>
         <HomeHeader></HomeHeader>
         <Swiper></Swiper>
-        123
+        <Icons></Icons>
     </div>
 </template>
 <script>
 import HomeHeader from './pages/HomeHeader'
 import Swiper from './pages/Swiper'
+import Icons from './pages/Icons'
 export default {
     data(){
         return{
@@ -16,7 +17,8 @@ export default {
     },
     components:{
         HomeHeader,
-        Swiper
+        Swiper,
+        Icons
     }
 }
 </script>
