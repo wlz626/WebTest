@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+
+let defaultCity = "上海"
+defaultCity =localStorage.city
 const state ={
-    city:"上海"
+    city:defaultCity
 }
 
 export default new Vuex.Store({
@@ -11,6 +14,7 @@ export default new Vuex.Store({
     mutations:{
         changeCity(state,cName){
             this.state.city = cName;
+            localStorage.setItem("city",cName);
         }
     }
 })

@@ -26,7 +26,7 @@ export default {
             iconsList:[],
             hotList:[],
             likeList:[],
-            vacationList:[]
+            vacationList:[],
         }
     },
     components:{
@@ -41,16 +41,31 @@ export default {
     },
     mounted(){
         this.$http.get("/api/dataHome.json").then((res)=>{
-            const data = res.data.data[0];
-            console.log(data.hotList);
-            this.swiperList = data.swiperList;
-            this.iconsList = data.iconsList;
-            this.hotList = data.hotList;
-            this.likeList = data.likeList;
-            this.vacationList = data.vacationList;
+            const data = res.data.data;
+            console.log(data);
+            data.forEach((item,index)=>{
+                if (item.city == this.$store.state.city){
+                    this.swiperList = item.swiperList;
+                    this.iconsList = item.iconsList;
+                    this.hotList = item.hotList;
+                    this.likeList = item.likeList;
+                    this.vacationList = item.vacationList;
+                }else{
+                    this.swiperList = data[0].swiperList;
+                    this.iconsList = data[0].iconsList;
+                    this.hotList = data[0].hotList;
+                    this.likeList = data[0].likeList;
+                    this.vacationList = data[0].vacationList;
+                }
+            })
+            // this.swiperList = data.swiperList;
+            // this.iconsList = data.iconsList;
+            // this.hotList = data.hotList;
+            // this.likeList = data.likeList;
+            // this.vacationList = data.vacationList;
 
         })
-    }
+    },
 }
 </script>
 <style lang="stylus" scoped>
