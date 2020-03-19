@@ -7,10 +7,10 @@
         </div>
         <ul class="hot-list">
             <li class="hot-item" v-for="item in hotList" :key="item.id">
-                <img :src="item.imgsrc" alt="">
+                <img :src="item.imgUrl" alt="">
                 <p>{{item.title}}</p>
                 <p>
-                    <span class="hot-price">￥{{item.price}}</span>起
+                    <span class="hot-price">￥{{item.mark}}</span>起
                 </p>
             </li>
         </ul>
@@ -18,70 +18,9 @@
 </template>
 <script>
 export default {
+    props:['hotList'],
     data(){
         return{
-            hotList:[
-                {
-                    id:"01",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-                {
-                    id:"02",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"十渡聚龙湾玻璃栈道",
-                    price:35
-                },
-                {
-                    id:"03",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"八达岭长城",
-                    price:25
-                },
-                {
-                    id:"04",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"水立方",
-                    price:14
-                },
-                {
-                    id:"05",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"定陵",
-                    price:50
-                },
-                {
-                    id:"06",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-                {
-                    id:"07",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-                {
-                    id:"08",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-                {
-                    id:"09",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-                {
-                    id:"10",
-                    imgsrc:"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_150x150_06cb3e52.jpg",
-                    title:"故宫",
-                    price:20
-                },
-            ]
         }
     }
 }

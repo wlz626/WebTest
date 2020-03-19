@@ -7,7 +7,9 @@
             <span class="iconfont">&#xe632;</span>
             输入城市/景点/游玩主题
         </div>
-        <div class="header-right">北京<span class="iconfont">&#xe62a;</span></div>
+        <router-link to="/City">
+            <div class="header-right">北京<span class="iconfont">&#xe62a;</span></div>
+        </router-link>
     </div>
 </template>
 <script>
@@ -42,5 +44,8 @@ export default {
     .header-right
         font-size .28rem
         padding 0 .2rem
+        color #fff
+        a
+            color #fff
 
 </style>
