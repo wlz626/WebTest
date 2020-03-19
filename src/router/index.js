@@ -15,6 +15,11 @@ export default new Router({
       path: '/City',
       name: 'City',
       component:()=>import('../components/city/City.vue')
+    },
+    {
+      path: '/details',
+      name: 'details',
+      component:()=>import('../components/details/Details.vue')
     }
   ]
 })

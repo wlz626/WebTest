@@ -4,7 +4,7 @@
             <img src="http://img1.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png" alt="">猜你喜欢
         </div>
         <ul>
-            <li class="like-item border-bottom" v-for="item in likeList" :key="item.id">
+            <li class="like-item border-bottom" v-for="item in likeList" :key="item.id" @click="toDetails">
                 <div class="like-img">
                     <img :src="item.imgUrl" alt="">
                 </div>
@@ -26,6 +26,11 @@ export default {
     props:['likeList'],
     data(){
         return{
+        }
+    },
+    methods:{
+        toDetails(){
+            this.$router.push('/details');
         }
     }
 }

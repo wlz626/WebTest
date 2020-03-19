@@ -27,6 +27,7 @@ export default {
             hotList:[],
             likeList:[],
             vacationList:[],
+            oldCity:''
         }
     },
     components:{
@@ -39,33 +40,40 @@ export default {
         Like,
         Vacation
     },
-    mounted(){
-        this.$http.get("/api/dataHome.json").then((res)=>{
-            const data = res.data.data;
-            console.log(data);
-            data.forEach((item,index)=>{
-                if (item.city == this.$store.state.city){
-                    this.swiperList = item.swiperList;
-                    this.iconsList = item.iconsList;
-                    this.hotList = item.hotList;
-                    this.likeList = item.likeList;
-                    this.vacationList = item.vacationList;
-                }else{
-                    this.swiperList = data[0].swiperList;
-                    this.iconsList = data[0].iconsList;
-                    this.hotList = data[0].hotList;
-                    this.likeList = data[0].likeList;
-                    this.vacationList = data[0].vacationList;
-                }
+    methods:{
+        getHttp(){
+                this.$http.get("/api/dataHome.json")
+                .then((res)=>{
+                    const data = res.data.data;
+                    data.forEach((item,index)=>{
+                        if (item.city == this.$store.state.city){
+                            this.swiperList = item.swiperList;
+                            this.iconsList = item.iconsList;
+                            this.hotList = item.hotList;
+                            this.likeList = item.likeList;
+                            this.vacationList = item.vacationList;
+                        }else{
+                            this.swiperList = data[0].swiperList;
+                            this.iconsList = data[0].iconsList;
+                            this.hotList = data[0].hotList;
+                            this.likeList = data[0].likeList;
+                            this.vacationList = data[0].vacationList;
+                        }
+                    })
             })
-            // this.swiperList = data.swiperList;
-            // this.iconsList = data.iconsList;
-            // this.hotList = data.hotList;
-            // this.likeList = data.likeList;
-            // this.vacationList = data.vacationList;
-
-        })
+        }
     },
+    mounted(){
+        this.oldCity=this.city;
+        this.getHttp()
+    },
+    activated(){
+        if(this.city != this.oldCity){
+            this.getHttp();
+            this.oldCity = this.city;
+        }
+    }
+
 }
 </script>
 <style lang="stylus" scoped>

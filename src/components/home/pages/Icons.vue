@@ -45,7 +45,7 @@ export default {
     .icons
         background #fff
         width 100%
-        height 4.2rem
+        height 4rem
         overflow hidden
     .icons-item
         width 25%
@@ -64,6 +64,7 @@ export default {
             text-align center
             color #212121
             margin-top .1rem
+
     .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets
         bottom -.05rem
     .swiper-pagination >>> .swiper-pagination-bullet
