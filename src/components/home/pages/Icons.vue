@@ -93,6 +93,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
     .icons
+        background #fff
         width 100%
         height 4.2rem
         overflow hidden
