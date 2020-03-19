@@ -1,22 +1,17 @@
 <template>
     <div class="city">
         <CityHeader></CityHeader>
-        <CityHot :hotCities='hotCities'></CityHot>
-        <CitySort :cities='cities'></CitySort>
-        <CityList :cities='cities'></CityList>
+        <CityList :cities='cities' :hotCities='hotCities'></CityList>
+
     </div>
 </template>
 <script>
 import CityHeader from './pages/Header'
-import CityHot from './pages/Hot'
-import CitySort from './pages/Sort'
 import CityList from './pages/List'
 
 export default {
     components:{
         CityHeader,
-        CityHot,
-        CitySort,
         CityList
     },
     data(){
