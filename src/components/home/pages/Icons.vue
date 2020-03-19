@@ -92,6 +92,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+@import '~css/common.styl';
     .icons
         background #fff
         width 100%
@@ -109,6 +110,7 @@ export default {
             margin 0 auto
             padding-top .2rem
         p
+            textOverflow()
             font-size .28rem
             text-align center
             color #212121
