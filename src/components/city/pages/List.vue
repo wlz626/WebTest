@@ -17,19 +17,20 @@
                 <div class="sort">
                     <div class="sort-title">字母排序</div>
                     <ul class="sort-list">
-                        <li class="sort-item" v-for="(item2,key1) in cities" :key="key1">{{key1}}</li>
+                        <li class="sort-item" v-for="(item2,key1) in cities" :key="key1" @click="changeSort(key1)">{{key1}}</li>
                     </ul>
                 </div>
             </div>
             <!--list -->
             <div>
-                <div class="list" v-for="(item3,key2) in cities" :key="key2">
-                    <div class="list-title">{{key2}}</div>
+                <div class="list" v-for="(val,key) in cities" :key="key" :ref="key">
+                    <div class="list-title">{{key}}</div>
                     <ul class="list-list">
-                        <li class="list-item" v-for="city in item3" :key="city.id">{{city.name}}</li>
+                        <li class="list-item" v-for="city in val" :key="city.id">{{city.name}}</li>
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -45,6 +46,12 @@ export default {
     mounted(){
         let container = this.$refs['container'];
         this.scroll = new BScroll(container);
+    },
+    methods:{
+        changeSort(sortName){
+            console.log(this.$refs[sortName][0]);
+            this.scroll.scrollToElement(this.$refs[sortName][0]);
+        }
     }
 }
 </script>
