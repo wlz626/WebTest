@@ -8,13 +8,16 @@
             输入城市/景点/游玩主题
         </div>
         <router-link to="/City">
-            <div class="header-right">北京<span class="iconfont">&#xe62a;</span></div>
+            <div class="header-right">{{city}}<span class="iconfont">&#xe62a;</span></div>
         </router-link>
     </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
-
+    computed:{
+        ...mapState(['city'])
+    }
 }
 </script>
 <style lang="stylus" scoped>

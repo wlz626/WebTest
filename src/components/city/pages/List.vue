@@ -6,7 +6,7 @@
                 <div class="hot">
                     <div class="hot-title">热门城市</div>
                     <ul class="hot-list">
-                        <li class="hot-item" v-for="item1 in hotCities" :key="item1.id">{{item1.name}}</li>
+                        <li class="hot-item" v-for="item1 in hotCities" :key="item1.id" @click="changeCityName(item1.name)">{{item1.name}}</li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="list" v-for="(val,key) in cities" :key="key" :ref="key">
                     <div class="list-title">{{key}}</div>
                     <ul class="list-list">
-                        <li class="list-item" v-for="city in val" :key="city.id">{{city.name}}</li>
+                        <li class="list-item" v-for="city in val" :key="city.id" @click="changeCityName(city.name)">{{city.name}}</li>
                     </ul>
                 </div>
             </div>
@@ -36,6 +36,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import {mapMutations} from 'vuex'
 export default {
     data(){
         return {
@@ -51,8 +52,13 @@ export default {
         changeSort(sortName){
             console.log(this.$refs[sortName][0]);
             this.scroll.scrollToElement(this.$refs[sortName][0]);
-        }
-    }
+        },
+        changeCityName(cityName){
+            this.$router.push('/');
+            this.changeCity(cityName);
+        },
+        ...mapMutations(['changeCity'])
+    },
 }
 </script>
 <style lang="stylus" scoped>
@@ -78,18 +84,20 @@ export default {
             content ""
             position absolute
             height 100%
-            width 25%
-            left 25%
+            width 100%
+            left 0
             border-left .02rem solid #ddd
-            border-right .02rem solid #ddd
+
         :after
             content ""
             position absolute
             height 100%
-            width 25%
-            right 25%
+            width 100%
+            right 0
             border-right .02rem solid #ddd
+
     .list-item
+        position relative
         textOverflow()
         color #212121
         text-align center
@@ -103,20 +111,20 @@ export default {
         font-size .26rem
         color #212121
         padding .25rem .3rem
-    .hot-list
         position relative
+    .hot-list
         background #fff
         font-size .28rem
         overflow hidden
         :before
             content ""
             position absolute
+            width 100%
             height 100%
-            width 33.33333%
-            left 33.33333%
+            left 0
             border-left .02rem solid #ddd
-            border-right .02rem solid #ddd
     .hot-item
+        position relative
         color #212121
         text-align center
         height .9rem
