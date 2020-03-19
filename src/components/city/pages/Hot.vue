@@ -2,19 +2,13 @@
     <div class="hot">
         <div class="hot-title">热门城市</div>
         <ul class="hot-list">
-            <li class="hot-item">北京</li>
-            <li class="hot-item">上海</li>
-            <li class="hot-item">杭州</li>
-            <li class="hot-item">北京</li>
-            <li class="hot-item">上海</li>
-            <li class="hot-item">杭州</li>
-            <li class="hot-item">北京</li>
-            <li class="hot-item">上海</li>
+            <li class="hot-item" v-for="item in hotCities" :key="item.id">{{item.name}}</li>
         </ul>
     </div>
 </template>
 <script>
 export default {
+    props:['hotCities'],
     components:{
 
     }
